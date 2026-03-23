@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Booking Confirmed — Resignation Guide</title>
+  <meta name="description" content="Thank you for booking a session. Someone from our team will reach you shortly."/>
+    <link rel="icon" type="image/x-icon"  href="../../assets/images/favicons/favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32"  href="../../assets/images/favicons/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/images/favicons/favicon-192x192.png"/>
+  <link rel="apple-touch-icon" href="../../assets/images/favicons/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="../../assets/css/styles.css"/>
+  <style>
+    .ty-hero {
+      min-height: calc(100vh - var(--nav));
+      margin-top: var(--nav);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--g50);
+      padding-block: clamp(56px, 8vw, 96px);
+    }
+    .ty-card {
+      background: var(--white);
+      border-radius: var(--r16);
+      box-shadow: var(--s3);
+      padding: clamp(40px, 6vw, 72px) clamp(32px, 5vw, 64px);
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
+    }
+    .ty-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--g100);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      font-size: 2rem;
+    }
+    .ty-card h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      margin-bottom: 16px;
+      color: var(--g800);
+    }
+    .ty-card p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      line-height: 1.7;
+    }
+    .ty-steps {
+      background: var(--n50);
+      border-radius: var(--r8);
+      padding: 24px 28px;
+      margin: 32px 0;
+      text-align: left;
+    }
+    .ty-steps h4 {
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--g600);
+      margin-bottom: 16px;
+    }
+    .ty-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--n100);
+    }
+    .ty-step:last-child { border-bottom: none; }
+    .ty-step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--g600);
+      color: white;
+      font-size: .75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .ty-step p { margin: 0; font-size: .9rem; color: var(--n700); }
+    .ty-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-row">
+    <a href="../../index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2C6 2 3 5 3 9c0 2.5 1.2 4.7 3 6l4 3 4-3c1.8-1.3 3-3.5 3-6 0-4-3-7-7-7z" fill="white" opacity=".9"/><circle cx="10" cy="9" r="2.5" fill="white" opacity=".5"/></svg></div>
+      <span class="logo-name">Resignation <span>Guide</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">Home</a>
+      <a href="assessment.html">Assessment</a>
+      <a href="guidance.html">Guidance</a>
+      <a href="resources.html">Resources</a>
+      <a href="../company/about.html">About</a>
+      <a href="../company/counselors.html">Our Counselors</a>
+      <a href="consult.html" class="nav-book">Book a Counselor</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <a href="../../index.html">Home</a>
+  <a href="assessment.html">Assessment</a>
+  <a href="guidance.html">Guidance</a>
+  <a href="resources.html">Resources</a>
+  <a href="../company/about.html">About</a>
+  <a href="../company/counselors.html">Our Counselors</a>
+  <a href="consult.html" class="nav-book">Book a Counselor</a>
+</div>
+
+<section class="ty-hero">
+  <div class="ty-card">
+    <div class="ty-icon">🎉</div>
+    <span class="pill" style="margin-bottom:20px">Booking Received</span>
+    <h1>Thank you!<br/>We'll be in touch soon.</h1>
+    <p>Someone from our team will reach out to you shortly to confirm your session details.</p>
+
+    <div class="ty-steps">
+      <h4>What happens next</h4>
+      <div class="ty-step">
+        <div class="ty-step-num">1</div>
+        <p>We'll review your request and match you with the best available counselor.</p>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-num">2</div>
+        <p>You'll receive a confirmation email within 24 hours with your session details.</p>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-num">3</div>
+        <p>Join your video call at the scheduled time — no payment required upfront.</p>
+      </div>
+    </div>
+
+    <div class="ty-btns">
+      <a href="../../index.html" class="btn btn-primary">Back to Home</a>
+      <a href="assessment.html" class="btn btn-outline">Take Free Assessment</a>
+    </div>
+  </div>
+</section>
+
+<script src="../../assets/js/main.js"></script>
+</body>
+</html>

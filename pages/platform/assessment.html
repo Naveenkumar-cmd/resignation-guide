@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Resignation Readiness Assessment — Career Guidance Platform</title>
+  <meta name="description" content="Take the free 25-point resignation readiness assessment. Get a personalised AI-powered score with actionable next steps in under 10 minutes."/>
+    <link rel="icon" type="image/x-icon"  href="../../assets/images/favicons/favicon.ico"/>
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/favicons/favicon.svg"/>
+  <link rel="icon" type="image/png" sizes="32x32"  href="../../assets/images/favicons/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="192x192" href="../../assets/images/favicons/favicon-192x192.png"/>
+  <link rel="apple-touch-icon" href="../../assets/images/favicons/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="../../assets/css/styles.css"/>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-row">
+    <a href="../../index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2C6 2 3 5 3 9c0 2.5 1.2 4.7 3 6l4 3 4-3c1.8-1.3 3-3.5 3-6 0-4-3-7-7-7z" fill="white" opacity=".9"/><circle cx="10" cy="9" r="2.5" fill="white" opacity=".5"/></svg></div>
+      <span class="logo-name">Resignation <span>Guide</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../../index.html">Home</a>
+      <a href="assessment.html" class="on">Assessment</a>
+      <a href="guidance.html">Guidance</a>
+      <a href="resources.html">Resources</a>
+      <a href="../company/about.html">About</a>
+      <a href="../company/counselors.html">Our Counselors</a>
+      <a href="consult.html" class="nav-book">Book a Counselor</a>
+    </div>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="drawer" id="drawer">
+  <a href="../../index.html">Home</a>
+  <a href="assessment.html" class="on">Assessment</a>
+  <a href="guidance.html">Guidance</a>
+  <a href="resources.html">Resources</a>
+  <a href="../company/about.html">About</a>
+  <a href="../company/counselors.html">Our Counselors</a>
+  <a href="consult.html" class="nav-book">Book a Counselor</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="phero">
+  <div class="wrap">
+    <span class="pill">Free Assessment</span>
+    <h1>Resignation Readiness<br/><em>Assessment</em></h1>
+    <p>25 factors · ~8 minutes · Instant personalised results</p>
+  </div>
+</section>
+
+<!-- PROGRESS -->
+<div class="pbar-wrap">
+  <div class="pbar-track"><div class="pbar-fill" id="pbarFill"></div></div>
+  <span class="pbar-txt" id="pbarTxt">Step 1 of 5</span>
+</div>
+
+<!-- FORM -->
+<div class="assess-bg">
+  <div class="wrap">
+    <div class="assess-grid">
+      <div class="fcard">
+        <form id="assessForm">
+
+          <!-- STEP 1 -->
+          <div class="fstep on" data-step="1">
+            <div class="fstep-head">
+              <span class="fstep-tag">Step 1 of 5</span>
+              <h2>About You</h2>
+              <p>Tell us about your background and current situation.</p>
+            </div>
+            <div class="fg">
+              <div class="fgroup"><label class="flabel">Full Name *</label><input class="fi" type="text" name="fullName" placeholder="Rahul Sharma" required/></div>
+              <div class="fgroup"><label class="flabel">Email Address *</label><input class="fi" type="email" name="email" placeholder="rahul@example.com" required/></div>
+              <div class="fgroup"><label class="flabel">Age Range *</label>
+                <select class="fsel" name="age" required>
+                  <option value="">Select your age range</option>
+                  <option>22–27 (Early Career)</option><option>28–33 (Growth Phase)</option>
+                  <option>34–39 (Mid-Career)</option><option>40–45 (Senior Phase)</option><option>46+ (Leadership)</option>
+                </select>
+              </div>
+              <div class="fgroup"><label class="flabel">City / Location *</label><input class="fi" type="text" name="location" placeholder="Mumbai, India" required/></div>
+              <div class="fgroup fg-f">
+                <label class="flabel">Financial Dependents *</label>
+                <div class="chips">
+                  <label class="chip"><input type="radio" name="dependents" value="none" required/><span>None</span></label>
+                  <label class="chip"><input type="radio" name="dependents" value="spouse"/><span>Spouse only</span></label>
+                  <label class="chip"><input type="radio" name="dependents" value="children"/><span>Children</span></label>
+                  <label class="chip"><input type="radio" name="dependents" value="parents"/><span>Elderly parents</span></label>
+                  <label class="chip"><input type="radio" name="dependents" value="multiple"/><span>Multiple</span></label>
+                </div>
+              </div>
+              <div class="fgroup fg-f"><label class="flabel">Emergency Savings (months of expenses) *</label>
+                <select class="fsel" name="savingsMonths" required>
+                  <option value="">Select</option>
+                  <option value="0">Less than 1 month</option><option value="1">1–3 months</option>
+                  <option value="3">3–6 months</option><option value="6">6–12 months</option><option value="12">More than 12 months</option>
+                </select>
+              </div>
+            </div>
+            <div class="fnav"><span></span><button type="button" class="btn btn-primary" onclick="nextStep(1)">Continue →</button></div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="fstep" data-step="2">
+            <div class="fstep-head">
+              <span class="fstep-tag">Step 2 of 5</span>
+              <h2>Your Current Role</h2>
+              <p>Help us understand where you are today professionally.</p>
+            </div>
+            <div class="fg">
+              <div class="fgroup"><label class="flabel">Current Company *</label><input class="fi" type="text" name="company" placeholder="e.g. Infosys, HDFC, Unilever" required/></div>
+              <div class="fgroup"><label class="flabel">Company Size *</label>
+                <select class="fsel" name="companySize" required>
+                  <option value="">Select</option>
+                  <option>Startup (&lt;50)</option><option>Small (50–200)</option><option>Mid-size (200–1000)</option>
+                  <option>Large (1000–10,000)</option><option>Enterprise (10,000+)</option>
+                </select>
+              </div>
+              <div class="fgroup"><label class="flabel">Industry *</label>
+                <select class="fsel" name="industry" required>
+                  <option value="">Select</option>
+                  <option>Technology / IT</option><option>Banking &amp; Finance</option><option>Consulting</option>
+                  <option>Healthcare</option><option>FMCG / Retail</option><option>Manufacturing</option>
+                  <option>Media &amp; Advertising</option><option>Education</option><option>Real Estate</option>
+                  <option>Government / PSU</option><option>Other</option>
+                </select>
+              </div>
+              <div class="fgroup"><label class="flabel">Current Job Title *</label><input class="fi" type="text" name="jobTitle" placeholder="e.g. Product Manager, Senior Analyst" required/></div>
+              <div class="fgroup"><label class="flabel">Total Work Experience *</label>
+                <select class="fsel" name="totalExp" required>
+                  <option value="">Select</option>
+                  <option value="1">Less than 1 year</option><option value="2">1–2 years</option>
+                  <option value="4">3–5 years</option><option value="8">6–10 years</option>
+                  <option value="12">11–15 years</option><option value="16">16+ years</option>
+                </select>
+              </div>
+              <div class="fgroup"><label class="flabel">Time at Current Company *</label>
+                <select class="fsel" name="currentCompanyTenure" required>
+                  <option value="">Select</option>
+                  <option value="0.5">Less than 6 months</option><option value="1">6 months – 1 year</option>
+                  <option value="2">1–2 years</option><option value="3">2–4 years</option>
+                  <option value="5">4–7 years</option><option value="8">7+ years</option>
+                </select>
+              </div>
+              <div class="fgroup"><label class="flabel">Monthly CTC (₹) *</label>
+                <select class="fsel" name="currentSalary" required>
+                  <option value="">Select range</option>
+                  <option value="30000">Under ₹30,000</option><option value="60000">₹30k – ₹60k</option>
+                  <option value="100000">₹60k – ₹1 Lakh</option><option value="200000">₹1 – 2 Lakh</option>
+                  <option value="300000">₹2 – 3 Lakh</option><option value="500000">Above ₹3 Lakh</option>
+                </select>
+              </div>
+              <div class="fgroup"><label class="flabel">Last Promotion / Appraisal *</label>
+                <select class="fsel" name="lastPromotion" required>
+                  <option value="">Select</option>
+                  <option value="recent">Within last 6 months</option><option value="1year">6–12 months ago</option>
+                  <option value="2years">1–2 years ago</option><option value="3years">2–3 years ago</option>
+                  <option value="never">Never received one</option>
+                </select>
+              </div>
+            </div>
+            <div class="fnav">
+              <button type="button" class="btn btn-outline" onclick="prevStep(2)">← Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(2)">Continue →</button>
+            </div>
+          </div>
+
+          <!-- STEP 3 -->
+          <div class="fstep" data-step="3">
+            <div class="fstep-head">
+              <span class="fstep-tag">Step 3 of 5</span>
+              <h2>Your Work Situation</h2>
+              <p>Rate your current environment honestly — this shapes your score most.</p>
+            </div>
+            <div class="fg">
+              <div class="fgroup fg-f">
+                <label class="flabel">Primary reason you're considering resignation *</label>
+                <div class="chips">
+                  <label class="chip"><input type="checkbox" name="resignReason" value="burnout"/><span>Burnout / exhaustion</span></label>
+                  <label class="chip"><input type="checkbox" name="resignReason" value="growth"/><span>No career growth</span></label>
+                  <label class="chip"><input type="checkbox" name="resignReason" value="salary"/><span>Underpaid</span></label>
+                  <label class="chip"><input type="checkbox" name="resignReason" value="toxic"/><span>Toxic manager / culture</span></label>
+                  <label class="chip"><input type="checkbox" name="resignReason" value="offer"/><span>Better offer received</span></label>
+                  <label class="chip"><input type="checkbox" name="resignReason" value="pivot"/><span>Career pivot</span></label>
+                  <label class="chip"><input type="checkbox" name="resignReason" value="startup"/><span>Start a business</span></label>
+                  <label class="chip"><input type="checkbox" name="resignReason" value="relocation"/><span>Relocation / personal</span></label>
+                </div>
+              </div>
+              <div class="fgroup fg-f">
+                <label class="flabel">Overall job satisfaction *</label>
+                <div class="rrow">
+                  <button type="button" class="rbtn" data-name="jobSatisfaction" data-value="1">1<small>Very Low</small></button>
+                  <button type="button" class="rbtn" data-name="jobSatisfaction" data-value="2">2</button>
+                  <button type="button" class="rbtn" data-name="jobSatisfaction" data-value="3">3<small>Neutral</small></button>
+                  <button type="button" class="rbtn" data-name="jobSatisfaction" data-value="4">4</button>
+                  <button type="button" class="rbtn" data-name="jobSatisfaction" data-value="5">5<small>Very High</small></button>
+                </div>
+                <input type="hidden" name="jobSatisfaction" id="jobSatisfaction"/>
+              </div>
+              <div class="fgroup fg-f">
+                <label class="flabel">Relationship with your manager *</label>
+                <div class="rrow">
+                  <button type="button" class="rbtn" data-name="managerRelation" data-value="1">1<small>Terrible</small></button>
+                  <button type="button" class="rbtn" data-name="managerRelation" data-value="2">2</button>
+                  <button type="button" class="rbtn" data-name="managerRelation" data-value="3">3<small>Okay</small></button>
+                  <button type="button" class="rbtn" data-name="managerRelation" data-value="4">4</button>
+                  <button type="button" class="rbtn" data-name="managerRelation" data-value="5">5<small>Excellent</small></button>
+                </div>
+                <input type="hidden" name="managerRelation" id="managerRelation"/>
+              </div>
+              <div class="fgroup"><label class="flabel">Work-Life Balance *</label>
+                <select class="fsel" name="workLifeBalance" required>
+                  <option value="">Select</option>
+                  <option value="1">Very poor — always overworked</option><option value="2">Poor — frequent overtime</option>
+                  <option value="3">Acceptable</option><option value="4">Good</option><option value="5">Excellent</option>
+                </select>
+              </div>
+              <div class="fgroup"><label class="flabel">Learning &amp; Skill Development *</label>
+                <select class="fsel" name="learningOpportunity" required>
+                  <option value="">Select</option>
+                  <option value="1">No learning at all</option><option value="2">Minimal</option>
+                  <option value="3">Moderate</option><option value="4">Good growth</option><option value="5">Excellent</option>
+                </select>
+              </div>
+              <div class="fgroup fg-f"><label class="flabel">Do you have another job offer? *</label>
+                <select class="fsel" name="hasOffer" required>
+                  <option value="">Select</option>
+                  <option value="yes_better">Yes — significantly better (30%+ hike)</option>
+                  <option value="yes_similar">Yes — similar package</option>
+                  <option value="no_searching">No, but actively searching</option>
+                  <option value="no_notstarted">No, haven't started searching yet</option>
+                </select>
+              </div>
+            </div>
+            <div class="fnav">
+              <button type="button" class="btn btn-outline" onclick="prevStep(3)">← Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(3)">Continue →</button>
+            </div>
+          </div>
+
+          <!-- STEP 4 -->
+          <div class="fstep" data-step="4">
+            <div class="fstep-head">
+              <span class="fstep-tag">Step 4 of 5</span>
+              <h2>Your Career Goals</h2>
+              <p>Tell us where you want to go — so we can advise you on how to get there.</p>
+            </div>
+            <div class="fg">
+              <div class="fgroup fg-f"><label class="flabel">Primary Career Goal *</label>
+                <select class="fsel" name="careerGoal" required>
+                  <option value="">Select</option>
+                  <option value="leadership">Reach a senior leadership / CXO role</option>
+                  <option value="specialization">Become a domain expert / specialist</option>
+                  <option value="pivot">Switch to a completely different industry</option>
+                  <option value="entrepreneur">Start my own business</option>
+                  <option value="wlb">Better work-life balance</option>
+                  <option value="salary">Maximise compensation</option>
+                  <option value="abroad">Work abroad / global role</option>
+                  <option value="unsure">Not sure yet</option>
+                </select>
+              </div>
+              <div class="fgroup fg-f">
+                <label class="flabel">Skills built in the last 1 year (select all that apply)</label>
+                <div class="chips">
+                  <label class="chip"><input type="checkbox" name="skills" value="tech"/><span>Technical / Coding</span></label>
+                  <label class="chip"><input type="checkbox" name="skills" value="data"/><span>Data &amp; Analytics</span></label>
+                  <label class="chip"><input type="checkbox" name="skills" value="leadership"/><span>Leadership</span></label>
+                  <label class="chip"><input type="checkbox" name="skills" value="communication"/><span>Communication</span></label>
+                  <label class="chip"><input type="checkbox" name="skills" value="sales"/><span>Sales / BD</span></label>
+                  <label class="chip"><input type="checkbox" name="skills" value="design"/><span>Design / UX</span></label>
+                  <label class="chip"><input type="checkbox" name="skills" value="finance"/><span>Finance</span></label>
+                  <label class="chip"><input type="checkbox" name="skills" value="none"/><span>None significantly</span></label>
+                </div>
+              </div>
+              <div class="fgroup"><label class="flabel">Professional Network Strength *</label>
+                <select class="fsel" name="networkStrength" required>
+                  <option value="">Select</option>
+                  <option value="1">Very weak</option><option value="2">Weak</option>
+                  <option value="3">Moderate</option><option value="4">Strong</option>
+                  <option value="5">Excellent — recruiters call regularly</option>
+                </select>
+              </div>
+              <div class="fgroup"><label class="flabel">Market demand for your skills? *</label>
+                <select class="fsel" name="marketDemand" required>
+                  <option value="">Select</option>
+                  <option value="1">Not sure / likely low</option><option value="2">Some demand</option>
+                  <option value="3">Moderate</option><option value="4">High demand</option>
+                  <option value="5">Very high — frequent recruiter contact</option>
+                </select>
+              </div>
+              <div class="fgroup fg-f"><label class="flabel">How urgently are you considering resigning? *</label>
+                <select class="fsel" name="timeline" required>
+                  <option value="">Select</option>
+                  <option value="immediate">Immediately — within this month</option>
+                  <option value="soon">Soon — within 3 months</option>
+                  <option value="planned">Planned — 3–6 months from now</option>
+                  <option value="exploring">Just exploring — no fixed timeline</option>
+                </select>
+              </div>
+              <div class="fgroup fg-f"><label class="flabel">Anything else to share? (Optional)</label>
+                <textarea class="ftxt" name="additionalContext" rows="3" placeholder="Any specific concerns, constraints, or context..."></textarea>
+              </div>
+            </div>
+            <div class="fnav">
+              <button type="button" class="btn btn-outline" onclick="prevStep(4)">← Back</button>
+              <button type="button" class="btn btn-primary" onclick="nextStep(4)">Continue →</button>
+            </div>
+          </div>
+
+          <!-- STEP 5 -->
+          <div class="fstep" data-step="5">
+            <div class="fstep-head">
+              <span class="fstep-tag">Step 5 of 5</span>
+              <h2>Ready for Your Results</h2>
+              <p>We'll analyse your responses across 25 factors and generate your personalised report.</p>
+            </div>
+            <div class="review-rows">
+              <div class="review-row">Personal &amp; financial profile captured</div>
+              <div class="review-row">Current role &amp; company details noted</div>
+              <div class="review-row">Work situation fully assessed</div>
+              <div class="review-row">Career goals understood</div>
+            </div>
+            <label class="consent">
+              <input type="checkbox" id="consent" required/>
+              <span>I understand this is career guidance, not professional legal or financial advice. I agree to the <a href="#">Privacy Policy</a>.</span>
+            </label>
+            <div class="fnav">
+              <button type="button" class="btn btn-outline" onclick="prevStep(5)">← Back</button>
+              <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                <span id="btnTxt">Generate My Report →</span>
+                <span id="btnLoad" style="display:none">Analysing… ⏳</span>
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="aside">
+        <div class="widget">
+          <h4>🔒 Your Privacy</h4>
+          <p>Your data is encrypted and never sold. Used only to generate your personal report.</p>
+        </div>
+        <div class="widget">
+          <h4>📊 What You'll Get</h4>
+          <ul>
+            <li>✓ Readiness Score (0–100)</li>
+            <li>✓ Risk assessment — 5 dimensions</li>
+            <li>✓ Stay or Go recommendation</li>
+            <li>✓ 90-day action roadmap</li>
+            <li>✓ Alternative pathways</li>
+          </ul>
+        </div>
+        <div class="widget widget-cta">
+          <h4>Need human support?</h4>
+          <p>Book a 1:1 with a certified career counselor.</p>
+          <a href="consult.html" class="btn btn-outline btn-sm">Book Session →</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS MODAL -->
+<div class="modal-wrap" id="resultsModal">
+  <div class="modal-scrim" onclick="closeModal()"></div>
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="../../index.html" class="logo foot-logo">
+          <div class="logo-mark"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2C6 2 3 5 3 9c0 2.5 1.2 4.7 3 6l4 3 4-3c1.8-1.3 3-3.5 3-6 0-4-3-7-7-7z" fill="white" opacity=".9"/><circle cx="10" cy="9" r="2.5" fill="white" opacity=".5"/></svg></div>
+          <span class="logo-name">Resignation <span>Guide</span></span>
+        </a>
+        <p class="foot-about">Helping corporate professionals make smarter, clearer career transitions since 2024.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Twitter">𝕏</a>
+          <a href="#" aria-label="Instagram">ig</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Platform</h5>
+        <ul>
+          <li><a href="assessment.html">Self-Assessment</a></li>
+          <li><a href="guidance.html">Career Guidance</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="consult.html">Book a Counselor</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Dilemmas</h5>
+        <ul>
+          <li><a href="assessment.html">Burnout &amp; Stress</a></li>
+          <li><a href="assessment.html">No Growth</a></li>
+          <li><a href="assessment.html">Career Change</a></li>
+          <li><a href="assessment.html">Better Offer</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../company/about.html">About Us</a></li>
+          <li><a href="../company/counselors.html">Our Counselors</a></li>
+          <li><a href="../blog/blog.html">Blog</a></li>
+          <li><a href="../company/privacy.html">Privacy Policy</a></li>
+          <li><a href="../company/terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Resignation Guide. All rights reserved. Career guidance — not legal or financial advice.</span>
+      <span><a href="../company/privacy.html">Privacy</a> · <a href="../company/terms.html">Terms</a></span>
+    </div>
+  </div>
+</footer>
+  
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/js/assessment.js"></script>
+</body>
+</html>

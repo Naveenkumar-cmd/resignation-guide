@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Rounded square background -->
+  <rect width="64" height="64" rx="14" fill="#c9a84c"/>
+
+  <!-- Inner subtle shadow/depth layer -->
+  <rect x="3" y="3" width="58" height="58" rx="12" fill="none" stroke="#0d1a14" stroke-opacity="0.12" stroke-width="1"/>
+
+  <!-- Letter R — bold serif -->
+  <text x="32" y="46" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="700"
+    text-anchor="middle" fill="#0d1a14">R</text>
+</svg>

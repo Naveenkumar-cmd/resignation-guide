@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- Background pill for the R mark -->
+  <rect x="0" y="8" width="64" height="64" rx="14" fill="#c9a84c"/>
+
+  <!-- Letter R -->
+  <text x="32" y="54" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="700"
+    text-anchor="middle" fill="#0d1a14">R</text>
+
+  <!-- Wordmark: "esignation" -->
+  <text x="82" y="50" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700"
+    fill="#f5f0e8">esignation</text>
+
+  <!-- Tagline -->
+  <text x="84" y="68" font-family="Georgia, 'Times New Roman', serif" font-size="13" font-weight="400"
+    fill="#c9a84c">Career Guidance Platform</text>
+
+  <!-- Subtle underline accent -->
+  <line x1="82" y1="72" x2="308" y2="72" stroke="#c9a84c" stroke-width="1.5" stroke-opacity="0.35"/>
+</svg>
