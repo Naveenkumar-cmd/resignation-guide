@@ -29,14 +29,44 @@ function showStep(n) {
 function validate(n) {
   const step = document.querySelector(`.fstep[data-step="${n}"]`);
   let ok = true;
-  step.querySelectorAll('[required]').forEach(f => {
+
+  // Check standard required text/select/email inputs
+  step.querySelectorAll('input[required], select[required], textarea[required]').forEach(f => {
+    // Skip radio/checkbox — handled separately below
+    if (f.type === 'radio' || f.type === 'checkbox') return;
     f.style.borderColor = '';
     if (!f.value.trim()) {
       f.style.borderColor = 'var(--stop)';
       ok = false;
     }
   });
+
+  // Check radio groups: at least one must be checked
+  const radioGroups = new Set();
+  step.querySelectorAll('input[type="radio"][required]').forEach(r => radioGroups.add(r.name));
+  radioGroups.forEach(name => {
+    const radios = step.querySelectorAll(`input[type="radio"][name="${name}"]`);
+    const checked = [...radios].some(r => r.checked);
+    radios.forEach(r => { r.closest('.chips') && (r.closest('.chips').style.outline = ''); });
+    if (!checked) {
+      const wrap = radios[0].closest('.chips') || radios[0].parentElement;
+      if (wrap) wrap.style.outline = '2px solid var(--stop)';
+      ok = false;
+    }
+  });
+
+  // Check rating buttons: hidden input must have a value
+  step.querySelectorAll('input[type="hidden"][data-required="true"]').forEach(h => {
+    const btns = step.querySelectorAll(`.rbtn[data-name="${h.name}"]`);
+    btns.forEach(b => b.style.outline = '');
+    if (!h.value) {
+      btns.forEach(b => b.style.outline = '2px solid var(--stop)');
+      ok = false;
+    }
+  });
+
   if (!ok) {
+    // Scroll to the first invalid field
     const bad = step.querySelector('[style*="stop"]');
     if (bad) bad.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
@@ -51,7 +81,10 @@ function prevStep(from) { if (from > 1) showStep(from - 1); }
 document.querySelectorAll('.rbtn').forEach(btn => {
   btn.addEventListener('click', () => {
     const name = btn.dataset.name;
-    document.querySelectorAll(`.rbtn[data-name="${name}"]`).forEach(b => b.classList.remove('on'));
+    document.querySelectorAll(`.rbtn[data-name="${name}"]`).forEach(b => {
+      b.classList.remove('on');
+      b.style.outline = ''; // clear any validation error highlight
+    });
     btn.classList.add('on');
     const hidden = document.getElementById(name) || document.querySelector(`input[name="${name}"]`);
     if (hidden) hidden.value = btn.dataset.value;
@@ -94,13 +127,16 @@ function calcScore(d) {
 
 // ── VERDICT ──────────────────────────────────────────────────
 function getVerdict(score, d) {
+  // FIX: compare as number to avoid string comparison bugs
+  const tenure = parseFloat(d.currentCompanyTenure) || 2;
+
   if (score >= 68) return {
     label: '✅ Strong Case to Resign',
     color: 'var(--go)',
     summary: `Your profile shows strong readiness across multiple dimensions. You're financially positioned, skills appear market-ready, and your current situation is genuinely holding you back. This looks like a well-timed move — not an impulse.`,
     recs: [
       `Start applying immediately — your profile is competitive in the current market.`,
-      `Set a resignation date giving at least ${d.currentCompanyTenure <= 1 ? '30' : '60'} days' notice to exit professionally.`,
+      `Set a resignation date giving at least ${tenure <= 1 ? '30' : '60'} days' notice to exit professionally.`,
       `Activate your network: reach out to at least 10 contacts this week.`,
       `Confirm all pending bonuses, PF withdrawal, and relieving documents in writing before your last day.`,
       `Prepare a confident, honest narrative about your transition for interviews.`,
@@ -111,7 +147,8 @@ function getVerdict(score, d) {
     color: 'var(--warn)',
     summary: `You have meaningful reasons to leave, but a few important factors need strengthening first. Strategic actions over the next 2–4 months will dramatically improve your outcomes.`,
     recs: [
-      d.savingsMonths < 3 ? `Build emergency savings to at least 3 months of expenses before resigning.` : `Your savings are reasonable — keep building while you search.`,
+      // FIX: compare as number
+      parseFloat(d.savingsMonths) < 3 ? `Build emergency savings to at least 3 months of expenses before resigning.` : `Your savings are reasonable — keep building while you search.`,
       d.hasOffer === 'no_notstarted' ? `Begin your job search now while still employed — this protects your leverage.` : `Keep nurturing your pipeline: aim for 2+ live opportunities.`,
       `Have a direct conversation with your manager about your concerns before deciding.`,
       `Complete one relevant certification in the next 60 days to sharpen market positioning.`,
@@ -125,7 +162,8 @@ function getVerdict(score, d) {
     recs: [
       `Build emergency savings to at least 4–6 months of expenses before any move.`,
       `Start your job search discreetly but immediately — building a pipeline takes time.`,
-      d.networkStrength <= 2 ? `Invest in your network: attend industry events and connect with 5 people per week on LinkedIn.` : `Leverage your network to explore quietly without broadcasting you're searching.`,
+      // FIX: compare as number
+      parseInt(d.networkStrength) <= 2 ? `Invest in your network: attend industry events and connect with 5 people per week on LinkedIn.` : `Leverage your network to explore quietly without broadcasting you're searching.`,
       `Identify the 2 skills most valued in your target role and begin learning now.`,
       `Give the internal conversation a genuine try first — you may not need to leave.`,
     ],
@@ -149,14 +187,15 @@ function getOpps(d) {
 }
 
 // ── RENDER MODAL ──────────────────────────────────────────────
-function renderModal(d, score, bd, v) {
-  const opps = getOpps(d);
+function renderModal(formData, score, bd, v) {
+  const opps = getOpps(formData);
   const c  = 2 * Math.PI * 52;
   const dc = c - (score / 100) * c;
   const dimColor = (val, max) => {
     const p = val / max * 100;
     return p >= 65 ? 'var(--g500)' : p >= 40 ? 'var(--warn)' : 'var(--stop)';
   };
+  // FIX: renamed inner map param from 'd' to 'dim' to avoid shadowing formData param
   const dims = [
     { label:'Financial Safety',  val:bd.financial, max:25 },
     { label:'Career Readiness',  val:bd.career,    max:25 },
@@ -186,11 +225,11 @@ function renderModal(d, score, bd, v) {
       <p>${v.summary}</p>
     </div>
     <div class="dims">
-      ${dims.map(d => `
+      ${dims.map(dim => `
         <div class="drow">
-          <span class="dlbl">${d.label}</span>
-          <div class="dtrack"><div class="dfill" style="width:${Math.round(d.val/d.max*100)}%;background:${dimColor(d.val,d.max)}"></div></div>
-          <span class="dpct" style="color:${dimColor(d.val,d.max)}">${Math.round(d.val/d.max*100)}%</span>
+          <span class="dlbl">${dim.label}</span>
+          <div class="dtrack"><div class="dfill" style="width:${Math.round(dim.val/dim.max*100)}%;background:${dimColor(dim.val,dim.max)}"></div></div>
+          <span class="dpct" style="color:${dimColor(dim.val,dim.max)}">${Math.round(dim.val/dim.max*100)}%</span>
         </div>
       `).join('')}
     </div>
@@ -245,12 +284,20 @@ document.getElementById('assessForm').addEventListener('submit', async function(
 
   await new Promise(r => setTimeout(r, 1600));
 
-  const { score, breakdown } = calcScore(d);
-  const verdict = getVerdict(score, d);
+  try {
+    const { score, breakdown } = calcScore(d);
+    const verdict = getVerdict(score, d);
 
-  txt.style.display = 'inline';
-  load.style.display = 'none';
-  btn.disabled = false;
+    txt.style.display = 'inline';
+    load.style.display = 'none';
+    btn.disabled = false;
 
-  renderModal(d, score, breakdown, verdict);
+    renderModal(d, score, breakdown, verdict);
+  } catch (err) {
+    console.error('Assessment error:', err);
+    txt.style.display = 'inline';
+    load.style.display = 'none';
+    btn.disabled = false;
+    alert('Something went wrong generating your report. Please try again.');
+  }
 });
