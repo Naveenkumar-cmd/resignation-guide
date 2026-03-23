@@ -62,7 +62,7 @@
   <div class="wrap">
     <div class="assess-grid">
       <div class="fcard">
-        <form id="assessForm">
+        <form id="assessForm" novalidate>
 
           <!-- STEP 1 -->
           <div class="fstep on" data-step="1">
@@ -198,7 +198,7 @@
                   <button type="button" class="rbtn" data-name="jobSatisfaction" data-value="4">4</button>
                   <button type="button" class="rbtn" data-name="jobSatisfaction" data-value="5">5<small>Very High</small></button>
                 </div>
-                <input type="hidden" name="jobSatisfaction" id="jobSatisfaction"/>
+                <input type="hidden" name="jobSatisfaction" id="jobSatisfaction" data-required="true"/>
               </div>
               <div class="fgroup fg-f">
                 <label class="flabel">Relationship with your manager *</label>
@@ -209,7 +209,7 @@
                   <button type="button" class="rbtn" data-name="managerRelation" data-value="4">4</button>
                   <button type="button" class="rbtn" data-name="managerRelation" data-value="5">5<small>Excellent</small></button>
                 </div>
-                <input type="hidden" name="managerRelation" id="managerRelation"/>
+                <input type="hidden" name="managerRelation" id="managerRelation" data-required="true"/>
               </div>
               <div class="fgroup"><label class="flabel">Work-Life Balance *</label>
                 <select class="fsel" name="workLifeBalance" required>
